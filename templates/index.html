@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TechZone | Tecnología al alcance</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="bg-slate-950 text-white">
+
+    <!-- NAVBAR -->
+    <header class="border-b border-slate-800">
+        <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+
+            <div>
+                <h1 class="text-2xl font-bold text-cyan-400">
+                    TechZone
+                </h1>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <main class="max-w-6xl mx-auto px-6">
+
+        <section class="min-h-[70vh] flex items-center">
+
+            <div class="max-w-3xl">
+
+                <p class="text-cyan-400 font-semibold mb-3">
+                    TECNOLOGÍA
+                </p>
+
+                <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                    Tecnología
+                    <span class="text-cyan-400">
+                        cerca de ti.
+                    </span>
+                </h2>
+
+                <p id="descripcion"
+                   class="text-slate-400 text-lg leading-relaxed mb-8 max-w-2xl">
+                    En TechZone encontrarás productos tecnológicos
+                    pensados para mejorar tu día a día.
+                </p>
+
+
+                <!-- BOTONES -->
+                <div class="flex flex-wrap gap-4">
+
+                    <button
+                        id="btnMensaje"
+                        class="px-6 py-3 bg-cyan-500 text-slate-950 font-semibold rounded-lg hover:bg-cyan-400 transition">
+                        Mostrar mensaje
+                    </button>
+
+                    <button
+                        id="btnContenido"
+                        class="px-6 py-3 border border-slate-700 rounded-lg hover:bg-slate-800 transition">
+                        Cambiar contenido
+                    </button>
+
+                    <button
+                        id="btnEstilo"
+                        class="px-6 py-3 border border-slate-700 rounded-lg hover:bg-slate-800 transition">
+                        Cambiar estilo
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 py-6">
+
+        <p class="text-center text-sm text-slate-500">
+            © 2026 TechZone - Proyecto Básico de TDW
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
