@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+Slider de imágenes
+{% endblock %}
+
+{% block content %}
+
+<header class="text-center py-8">
+    <h1 class="text-3xl font-bold text-gray-800">
+        Galería de imágenes
+    </h1>
+
+    <p class="mt-2 text-gray-600">
+        Presentación de imágenes
+    </p>
+</header>
+
+<main class="slider-container">
+
+    <div class="slider">
+
+        <div class="slide active">
+            <img src="{{ url_for('static', filename='img/imagen01.jpg') }}" alt="Imagen 1">
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='img/imagen02.jpg') }}" alt="Imagen 2">
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='img/imagen03.jpg') }}" alt="Imagen 3">
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='img/imagen04.jpg') }}" alt="Imagen 4">
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='img/imagen05.jpg') }}" alt="Imagen 5">
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='img/imagen06.jpg') }}" alt="Imagen 6">
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='img/imagen07.jpg') }}" alt="Imagen 7">
+        </div>
+
+        <div class="slide">
+            <img src="{{ url_for('static', filename='img/imagen08.jpg') }}" alt="Imagen 8">
+        </div>
+
+        <button class="btn prev" onclick="cambiarSlide(-1)">
+            ❮
+        </button>
+
+        <button class="btn next" onclick="cambiarSlide(1)">
+            ❯
+        </button>
+
+    </div>
+
+</main>
+
+{% endblock %}
