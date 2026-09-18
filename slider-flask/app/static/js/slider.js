@@ -20,12 +20,10 @@ function mostrarSlide(numero) {
     slides[slideActual].classList.add("active");
 }
 
-
 function cambiarSlide(direccion) {
     slideActual = slideActual + direccion;
 
     mostrarSlide(slideActual);
 }
-
 
 mostrarSlide(slideActual);
