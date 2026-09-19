@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Configura la página y carga Tailwind CSS para los estilos -->
+    <meta charset="UTF-8" />
+    <title>Form_Image - Análisis y Optimización</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-100 min-h-screen p-6">
+
+    <!-- Contenedor principal de la aplicación -->
+    <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6 text-center text-blue-600">Form_Analysis_Image</h1>
+
+        <!-- Formulario para ingresar datos y seleccionar la imagen -->
+        <form id="uploadForm" action="/" method="POST" enctype="multipart/form-data" novalidate class="space-y-4">
+            
+            <!-- Campo para ingresar los nombres y apellidos -->
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1 text-sm">Nombres y Apllidos: *</label>
+                <input type="text" name="nombre" id="nombreInput" 
+                 class="w-full border p-2 rounded text-sm" placeholder="Ingresa tus nombres y apellidos" />
+            </div>
+
+            <!-- Campo para ingresar el paisaje favorito -->
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1 text-sm">Paisaje Favorito: *</label>
+                <input type="text" name="paisaje" id="paisajeInput" 
+                 class="w-full border p-2 rounded text-sm" placeholder="Ej. Catarata, Montaña, Playa..." />
+            </div>
+
+            <!-- Campo para seleccionar una imagen y mostrar posibles errores -->
+            <div>
+                <label class="block text-gray-700 font-semibold mb-1 text-sm">Selecciona una imagen (PNG, JPG O JPEG): *</label>
+                <input type="file" id="imageInput" name="image" accept="image/png, image/jpeg, image/jpg"
+                 class="w-full border p-2 rounded text-sm" />
+                <p id="errorMsg" class="text-red-500 text-sm mt-1 hidden"></p>
+            </div>
+
+            <!-- Botón que envía el formulario para procesar los datos -->
+            <button type="submit"
+                class="w-full bg-blue-600 text-white p-2.5 rounded hover:bg-blue-700 transition font-semibold">
+                Subir y analizar
+            </button>
+        </form>
+
+        <!-- Muestra el reporte cuando Flask devuelve los resultados del procesamiento -->
+        {% if metrics %}
+        <div class="mt-8 border-t pt-6 bg-gray-50 p-5 rounded-lg border">
+
+            <!-- Título del reporte de resultados -->
+            <h2 class="text-lg font-bold mb-3 text-gray-800 text-center">
+                Reporte de Análisis Comparativo
+            </h2>
+
+            <!-- Presenta los datos obtenidos antes y después de optimizar la imagen -->
+            <ul class="space-y-2 text-sm text-gray-700">
+                <li><strong>Usuario:</strong> {{ metrics.nombre }}</li>
+                <li><strong>Paisaje favorito:</strong> {{ metrics.paisaje }}</li>
+                <li><strong>Archivo analizado:</strong> {{ metrics.filename }}</li>
+                <li><strong>Formato original:</strong> {{ metrics.format }}</li>
+                <li><strong>Resolución:</strong> {{ metrics.dimensions }}</li>
+                <li class="text-red-600"><strong>Peso inicial (Real):</strong> {{ metrics.orig_size }}</li>
+                <li class="text-green-600"><strong>Peso optimizado (Python):</strong> {{ metrics.opt_size }}</li>
+                <li class="font-bold text-blue-600 pt-1 border-t"><strong>Reducción lograda:</strong> {{ metrics.reduction }}</li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Conecta el HTML con el archivo JavaScript encargado de las validaciones -->
+    <script src="{{ url_for('static', filename='js/validation.js') }}"></script>
+</body>
+</html>
